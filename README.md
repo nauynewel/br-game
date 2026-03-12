@@ -2,7 +2,7 @@
 
 > 基于 [Backrooms 中文 Wiki](https://backrooms-wiki-cn.wikidot.com/) 的文字生存模拟游戏
 
-🎮 **[点击开始游戏](https://你的用户名.github.io/backrooms-game/)**
+🎮 **[点击开始游戏](https://nauynewel.github.io/br-game/)**
 
 ## 游戏特性
 
