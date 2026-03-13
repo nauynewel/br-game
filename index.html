@@ -57,7 +57,8 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:r
 .obj-name.tier-S{color:#ffd700}.obj-name.tier-A{color:#cc88cc}.obj-name.tier-B{color:#88cc88}.obj-name.tier-C{color:#aaa}
 .obj-find .obj-desc{font-size:.85em;color:#8a8060;margin-top:5px;line-height:1.7}
 .obj-find .obj-fx{font-family:'Share Tech Mono',monospace;font-size:.75em;color:#6a8a6a;margin-top:5px}
-.buff{font-family:'Share Tech Mono',monospace;font-size:.72em;padding:3px 8px;margin:3px 2px;display:inline-block;border-radius:2px;background:rgba(40,60,40,.4);border:1px solid #4a6a4a;color:#8aaa8a}
+.buff{font-family:'Share Tech Mono',monospace;font-size:.72em;padding:3px 8px;margin:3px 2px;display:inline-block;border-radius:2px;background:rgba(40,60,40,.4);border:1px solid #4a6a4a;color:#8aaa8a;cursor:pointer;transition:all .2s}
+.buff:hover{background:rgba(50,80,50,.5)}
 /* Log stat indicators */
 .le-stat{float:right;font-size:.9em;opacity:.8}
 .le-good .le-stat{color:#6a8a4a}
@@ -155,6 +156,73 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:r
 .theme-light .rb{border-color:#9a6a4a;color:#9a6a4a}
 .theme-light .rb:hover{background:rgba(180,120,80,.1)}
 .theme-light .d1{color:#27864a}.theme-light .d2{color:#6a9a2a}.theme-light .d3{color:#c49a00}.theme-light .d4{color:#d45a00}.theme-light .d5{color:#c0392b}
+.theme-light .settings-box{background:#f5f2e8;border-color:#d5cdb5;color:#4a4035}
+.theme-light .settings-box h3{color:#4a4035}
+.theme-light .settings-toggle{background:rgba(210,200,175,.4);border-color:#c5bda5;color:#4a4035}
+.theme-light .settings-close{background:rgba(210,200,175,.3);border-color:#c5bda5;color:#4a4035}
+.theme-light .settings-row label{color:#7a7060}
+.theme-light .settings-slider{accent-color:#9a9080}
+.theme-light .settings-val{color:#7a7060}
+.theme-light .settings-overlay{background:rgba(0,0,0,.35)}
+/* Debug sidebar */
+#debug-sidebar{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:#1a1a0e;border-left:1px solid #3a3820;z-index:300;overflow-y:auto;transition:right .3s ease;padding:0}
+#debug-sidebar.open{right:0}
+.db-header{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:1px solid #3a3820;position:sticky;top:0;background:#1a1a0e;z-index:1}
+.db-header span{color:#ffd700;font-size:.9em;font-family:'Share Tech Mono',monospace}
+.db-close{background:none;border:none;color:#8a8660;font-size:16px;cursor:pointer;padding:5px}
+.db-close:hover{color:#c9c49a}
+.db-section{padding:12px 15px;border-bottom:1px solid rgba(58,56,32,.5)}
+.db-label{color:#8a8660;font-size:.75em;font-family:'Share Tech Mono',monospace;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+.db-btns{display:flex;gap:5px;flex-wrap:wrap}
+.db-btn{padding:5px 12px;border:1px solid #4a4520;background:rgba(50,50,30,.5);color:#c9c49a;font-family:'Noto Serif SC',serif;font-size:.8em;cursor:pointer;border-radius:3px;transition:all .2s}
+.db-btn:hover{background:rgba(80,78,40,.5);border-color:#8a8660}
+.db-check{display:flex;align-items:center;gap:8px;font-size:.85em;color:#c9c49a;cursor:pointer}
+.db-check input{accent-color:#ffd700}
+.db-hint{font-size:.7em;color:#6a6440;margin-top:5px;line-height:1.5}
+.db-row{display:flex;gap:5px;align-items:center}
+.db-input{padding:5px 8px;background:rgba(50,50,30,.4);border:1px solid #4a4520;color:#c9c49a;font-family:'Share Tech Mono',monospace;font-size:.85em;border-radius:3px;width:60px}
+.db-input:focus{outline:none;border-color:#8a8660}
+.db-lvlist{margin-top:8px}
+.db-details{margin-bottom:5px}
+.db-details summary{font-size:.8em;color:#8a8660;cursor:pointer;padding:4px 0}
+.db-details summary:hover{color:#c9c49a}
+.db-lvgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;padding:5px 0}
+.db-lv{padding:4px;text-align:center;font-size:.75em;font-family:'Share Tech Mono',monospace;background:rgba(50,50,30,.3);border:1px solid #3a3820;color:#8a8660;cursor:pointer;border-radius:2px;transition:all .15s}
+.db-lv:hover{background:rgba(80,78,40,.5);color:#c9c49a}
+.db-lv.visited{background:rgba(40,60,40,.3);border-color:#4a6a4a;color:#6a8a4a}
+.db-lv.current{background:rgba(80,70,20,.5);border-color:#aa9a40;color:#ffd700}
+.db-itemlist{max-height:200px;overflow-y:auto}
+.db-item{display:flex;justify-content:space-between;align-items:center;padding:5px 8px;border-bottom:1px solid rgba(58,56,32,.3);cursor:pointer;font-size:.8em;transition:all .15s}
+.db-item:hover{background:rgba(80,78,40,.3)}
+.db-item.owned{opacity:.4}
+.db-item-info{font-size:.75em;color:#6a6440;font-family:'Share Tech Mono',monospace}
+.modal-fx-desc{font-size:.8em;color:#6a8a4a;margin-top:4px;padding:6px 8px;background:rgba(40,60,40,.2);border-radius:3px;line-height:1.6}
+.debug-gear{position:fixed;top:12px;right:52px;z-index:200;width:36px;height:36px;border-radius:50%;border:1px solid #5a4a20;background:rgba(50,40,10,.8);color:#ffd700;font-size:16px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:all .3s;backdrop-filter:blur(5px)}
+.debug-gear:hover{background:rgba(80,60,10,.9);transform:rotate(45deg)}
+.debug-on .debug-gear{display:flex}
+/* Light theme debug */
+.theme-light #debug-sidebar{background:#f5f2e8;border-color:#d5cdb5}
+.theme-light .db-header{background:#f5f2e8;border-color:#d5cdb5}
+.theme-light .db-header span{color:#9a7a00}
+.theme-light .db-close{color:#9a9080}
+.theme-light .db-section{border-color:rgba(210,200,175,.5)}
+.theme-light .db-label{color:#9a9080}
+.theme-light .db-btn{background:rgba(210,200,175,.4);border-color:#c5bda5;color:#4a4035}
+.theme-light .db-btn:hover{background:rgba(200,190,165,.6)}
+.theme-light .db-check{color:#4a4035}
+.theme-light .db-hint{color:#9a9080}
+.theme-light .db-input{background:rgba(210,200,175,.3);border-color:#c5bda5;color:#4a4035}
+.theme-light .db-details summary{color:#9a9080}
+.theme-light .db-lv{background:rgba(210,200,175,.2);border-color:#d5cdb5;color:#9a9080}
+.theme-light .db-lv:hover{background:rgba(200,190,165,.4);color:#4a4035}
+.theme-light .db-lv.visited{background:rgba(80,160,80,.1);border-color:#6a9a5a;color:#2a7a3a}
+.theme-light .db-lv.current{background:rgba(200,170,40,.2);border-color:#c4a020;color:#9a7a00}
+.theme-light .db-item{border-color:rgba(210,200,175,.3);color:#4a4035}
+.theme-light .db-item:hover{background:rgba(210,200,175,.3)}
+.theme-light .db-item-info{color:#9a9080}
+.theme-light .debug-gear{background:rgba(250,248,240,.85);border-color:#c4a020;color:#9a7a00}
+.theme-light .debug-gear:hover{background:rgba(240,236,220,.95)}
+.theme-light .modal-fx-desc{color:#2a7a3a;background:rgba(80,160,80,.08)}
 @keyframes fi{from{opacity:0}to{opacity:1}}
 @keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
 @media(max-width:600px){#gc{padding:10px}.sg{grid-template-columns:repeat(2,1fr)}#ts h1{font-size:2em}.lnm{font-size:1.4em}}
@@ -164,10 +232,13 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:r
 </head>
 <body>
 <div id="gc">
+<button class="gear-btn" onclick="toggleSettings()">⚙</button>
+<button class="debug-gear" onclick="toggleDebugSidebar()">🔧</button>
+<div id="debug-sidebar"></div>
 <div id="ts">
 <h1>后 室</h1>
 <div class="sub">BACKROOMS: SURVIVAL SIMULATOR</div>
-<div class="sub" style="margin-bottom:10px;font-size:.75em">v4.0 — 物品稀有度分级 · 特殊效果 · Wiki忠实还原</div>
+<div class="sub" style="margin-bottom:10px;font-size:.75em">v4.5 — 物品稀有度分级 · 特殊效果 · Wiki忠实还原</div>
 <div style="font-size:.7em;color:#4a4830;margin-bottom:30px;line-height:1.8">
 📦 物品分为 <span style="color:#ffd700">S传说</span> · <span style="color:#cc88cc">A稀有</span> · <span style="color:#88cc88">B普通</span> · <span style="color:#888">C常见</span> 四档<br>
 🎲 特殊效果：传送·护盾·感知·赌博·照明·静默·幸运……<br>
@@ -183,7 +254,6 @@ body::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:r
 <div class="si"><span class="sl">📦 物品</span><span class="sv" id="sv4">0</span><div class="sbr"><div class="sbf" id="sb4" style="width:0%;background:#a88"></div></div></div>
 </div></div>
 <div id="buffs" style="padding:5px 0;min-height:8px"></div>
-<button class="gear-btn" onclick="toggleSettings()">⚙</button>
 <div id="gcon"></div>
 <div id="hl"></div>
 </div>
@@ -195,21 +265,22 @@ const OB=[{"id": 1, "name": "杏仁水", "tier": "C", "type": "consumable", "des
 const DL=['','安全','低危','中危','高危','致命'];
 const TC={S:'传说',A:'稀有',B:'普通',C:'常见'};
 const ENAMES={shield:'🛡护盾',detect:'👁感知',light:'💡照明',double_find:'🍀幸运',immunity_sound:'🔇静默',noclip_boost:'🌀切行',attract:'⚠引诱',gamble:'🎲随机',teleport:'🌀传送',unlock:'🔑开锁'};
+const EDESC={shield:'受到的理智和体力伤害减半',detect:'进入层级时自动避开危险事件，只触发中性/有利事件',light:'在黑暗层级（Level 6/7/8）中受到的伤害减半',double_find:'探索时物品发现概率提高至2.5倍',immunity_sound:'免疫所有与声音相关的负面事件',noclip_boost:'使用noclip切出时消耗的理智和体力减半',attract:'吸引附近的实体向你靠近，造成额外伤害',gamble:'触发一个随机结果，可能好也可能坏',teleport:'随机传送到另一个层级',unlock:'在当前层级开启一条通往随机层级的新通道'};
 const GRE=[{t:"d",x:"你听到身后传来沉重的脚步声，不得不拼命奔跑。",s:-15,m:-20,c:.08},{t:"d",x:"一股无形的力量试图拉扯你的意识。",s:-25,m:0,c:.05},{t:"n",x:"时间在这里失去了意义。",s:-5,m:-3,c:.08}];
 const MAX_INV=8;
-let S={lv:0,san:100,sta:100,tn:0,mx:0,vis:new Set(),log:[],evts:0,inv:[],objFound:0,buffs:{}};
-let CFG={theme:'dark',fontSize:16};
+let S={lv:0,san:100,sta:100,tn:0,mx:0,vis:new Set(),log:[],evts:0,inv:[],objFound:0,buffs:{},pendingObj:null,debugEventOnly:false};
+let CFG={theme:'dark',fontSize:16,debug:false};
 
 // --- Settings ---
 function loadCfg(){try{var c=JSON.parse(localStorage.getItem('br_cfg'));if(c){CFG=Object.assign(CFG,c);}}catch(e){}}
 function saveCfg(){try{localStorage.setItem('br_cfg',JSON.stringify(CFG));}catch(e){}}
 function applyTheme(){
-document.body.className=CFG.theme==='light'?'theme-light':'';
+document.body.className=(CFG.theme==='light'?'theme-light':'')+(CFG.debug?' debug-on':'');
 document.documentElement.style.fontSize=CFG.fontSize+'px';
 saveCfg();
 }
 function toggleTheme(){CFG.theme=CFG.theme==='dark'?'light':'dark';applyTheme();}
-function setFontSize(v){CFG.fontSize=cl(parseInt(v),12,24);applyTheme();document.getElementById('fs-val').textContent=CFG.fontSize+'px';}
+function setFontSize(v){CFG.fontSize=cl(parseInt(v),12,24);applyTheme();var el=document.getElementById('fs-val');if(el)el.textContent=CFG.fontSize+'px';}
 function toggleSettings(){
 var existing=document.querySelector('.settings-overlay');
 if(existing){existing.remove();return;}
@@ -220,9 +291,92 @@ overlay.innerHTML='<div class="settings-box">'+
 '<h3>⚙ 设置</h3>'+
 '<div class="settings-row"><label>主题</label><button class="settings-toggle" onclick="toggleTheme();this.textContent=CFG.theme===\'dark\'?\'🌙 暗色（后室风格）\':\'☀️ 亮色（护眼模式）\'">'+(CFG.theme==='dark'?'🌙 暗色（后室风格）':'☀️ 亮色（护眼模式）')+'</button></div>'+
 '<div class="settings-row"><label>字体大小</label><input type="range" class="settings-slider" min="12" max="24" value="'+CFG.fontSize+'" oninput="setFontSize(this.value)"><span class="settings-val" id="fs-val">'+CFG.fontSize+'px</span></div>'+
+'<div class="settings-row"><label>神秘代码</label><input type="password" maxlength="5" id="pin-input" placeholder="· · · · ·" style="width:80px;padding:5px 8px;background:rgba(50,50,30,.4);border:1px solid #4a4520;color:#c9c49a;font-family:Share Tech Mono,monospace;text-align:center;border-radius:3px;font-size:.9em" onkeyup="checkPin(this.value)"><span id="pin-status" style="font-size:.75em;margin-left:8px">'+(CFG.debug?'<span style="color:#ffd700">✓ 已激活</span>':'')+'</span></div>'+
 '<button class="settings-close" onclick="this.closest(\'.settings-overlay\').remove()">关闭</button>'+
 '</div>';
 document.body.appendChild(overlay);
+}
+function checkPin(v){
+var el=document.getElementById('pin-status');
+if(v.length<5){if(el)el.textContent='';return;}
+if(v==='Panda'){
+CFG.debug=true;saveCfg();applyTheme();
+if(el)el.innerHTML='<span style="color:#ffd700">✓ 已激活</span>';
+setTimeout(function(){var ov=document.querySelector('.settings-overlay');if(ov)ov.remove();},400);
+}else{if(el)el.innerHTML='<span style="color:#aa4a3a">✗</span>';}
+}
+
+// --- Debug sidebar ---
+function toggleDebugSidebar(){
+var sb=document.getElementById('debug-sidebar');
+if(!sb)return;
+sb.classList.toggle('open');
+if(sb.classList.contains('open'))renderDebugSidebar();
+}
+function renderDebugSidebar(){
+var sb=document.getElementById('debug-sidebar');if(!sb)return;
+var h='<div class="db-header"><span>🔧 调试面板</span><button class="db-close" onclick="toggleDebugSidebar()">✕</button></div>';
+// Quick actions
+h+='<div class="db-section"><div class="db-label">快捷操作</div>';
+h+='<div class="db-btns">';
+h+='<button class="db-btn" onclick="S.san=100;S.sta=100;us();al(\'[调试] 属性已满\')">回满属性</button>';
+h+='<button class="db-btn" onclick="S.san+=30;S.sta+=30;us();al(\'[调试] +30\',30,30)">+30</button>';
+h+='</div></div>';
+// Event-only mode
+h+='<div class="db-section"><div class="db-label">探索模式</div>';
+h+='<label class="db-check"><input type="checkbox" '+(S.debugEventOnly?'checked':'')+' onchange="S.debugEventOnly=this.checked"> 仅触发层级特殊事件</label>';
+h+='<div class="db-hint">开启后探索只触发当前层级专属事件，不触发通用事件和物品获取</div>';
+h+='</div>';
+// Level teleport
+h+='<div class="db-section"><div class="db-label">层级跳转</div>';
+h+='<div class="db-row"><input type="number" id="db-level" min="0" max="99" value="'+S.lv+'" class="db-input" placeholder="0-99"><button class="db-btn" onclick="var v=parseInt(document.getElementById(\'db-level\').value);if(v>=0&&v<=99){toggleDebugSidebar();enterLevel(v);}">跳转</button></div>';
+h+='<div class="db-lvlist">';
+var lvGroups=[[0,24,'L0-24'],[25,49,'L25-49'],[50,74,'L50-74'],[75,99,'L75-99']];
+for(var g=0;g<lvGroups.length;g++){
+h+='<details class="db-details"><summary>'+lvGroups[g][2]+'</summary><div class="db-lvgrid">';
+for(var i=lvGroups[g][0];i<=lvGroups[g][1];i++){
+var ld=gl(i),vi=S.vis.has(i);
+h+='<button class="db-lv'+(vi?' visited':'')+(i===S.lv?' current':'')+'" onclick="toggleDebugSidebar();enterLevel('+i+')" title="'+ld.name+' ('+DL[ld.danger]+')">'+i+'</button>';
+}
+h+='</div></details>';
+}
+h+='</div></div>';
+// Item picker
+h+='<div class="db-section"><div class="db-label">物品添加 ('+S.inv.length+'/'+MAX_INV+')</div>';
+h+='<input type="text" id="db-item-search" class="db-input" placeholder="搜索物品名称..." oninput="filterDebugItems(this.value)" style="width:100%;margin-bottom:8px">';
+var tiers=['S','A','B','C'];
+for(var ti=0;ti<tiers.length;ti++){
+var t=tiers[ti],items=OB.filter(function(o){return o.tier===t;});
+h+='<details class="db-details"><summary class="tier-'+t+'">'+TC[t]+' ('+items.length+')</summary><div class="db-itemlist">';
+for(var j=0;j<items.length;j++){
+var ob=items[j],inInv=S.inv.find(function(x){return x.id===ob.id;});
+h+='<div class="db-item'+(inInv?' owned':'')+'" data-name="'+ob.name+'" onclick="debugPickItem('+ob.id+')">';
+h+='<span class="tier-'+ob.tier+'">'+ob.name+'</span>';
+h+='<span class="db-item-info">'+({consumable:'消耗',weapon:'武器',tool:'工具',danger:'危险',special:'特殊'}[ob.type]||ob.type)+'</span>';
+h+='</div>';
+}
+h+='</div></details>';
+}
+h+='</div>';
+sb.innerHTML=h;
+}
+function filterDebugItems(q){
+q=q.toLowerCase();
+var items=document.querySelectorAll('.db-item');
+items.forEach(function(el){
+var name=el.getAttribute('data-name').toLowerCase();
+el.style.display=(!q||name.indexOf(q)>=0)?'':'none';
+});
+}
+function debugPickItem(id){
+if(S.inv.length>=MAX_INV){al('[调试] 背包已满');return;}
+var obj=OB.find(function(o){return o.id===id;});
+if(!obj)return;
+if(S.inv.find(function(x){return x.id===id;})){al('[调试] 已拥有 '+obj.name);return;}
+var copy={};for(var k in obj)copy[k]=obj[k];S.inv.push(copy);
+al('[调试] 获得 ['+obj.tier+'] '+obj.name);us();
+renderDebugSidebar();
+renderLevel(gl(S.lv),ge(S.lv),null,true,S.pendingObj);
 }
 
 // --- Log with san/sta changes ---
@@ -242,10 +396,10 @@ function showItemModal(idx){
 var item=S.inv[idx];if(!item)return;
 var tierName=TC[item.tier]||'?';
 var fxDesc=item.effect&&ENAMES[item.effect]?ENAMES[item.effect]:'无特殊效果';
+var fxDetail=item.effect&&EDESC[item.effect]?'<div class="modal-fx-desc">'+EDESC[item.effect]+'</div>':'';
 var sanLabel=item.san>0?'<span style="color:#6a8a4a">理智 +'+item.san+'</span>':item.san<0?'<span style="color:#aa4a2a">理智 '+item.san+'</span>':'';
 var staLabel=item.sta>0?'<span style="color:#4a6a8a">体力 +'+item.sta+'</span>':item.sta<0?'<span style="color:#aa4a2a">体力 '+item.sta+'</span>':'';
 var statsLine=[sanLabel,staLabel].filter(Boolean).join(' · ')||'无属性变化';
-
 var overlay=document.createElement('div');
 overlay.className='modal-overlay';
 overlay.onclick=function(e){if(e.target===overlay)overlay.remove();};
@@ -255,7 +409,7 @@ overlay.innerHTML='<div class="modal">'+
 '<div class="modal-type">类型：'+({consumable:'消耗品',weapon:'武器',tool:'工具',danger:'危险品',special:'特殊'}[item.type]||item.type)+'</div>'+
 '<div class="modal-desc">'+item.desc+'</div>'+
 '<div class="modal-stats">'+statsLine+'</div>'+
-'<div class="modal-fx">特殊效果：'+fxDesc+'</div>'+
+'<div class="modal-fx">特殊效果：'+fxDesc+'</div>'+fxDetail+
 '<div class="modal-btns">'+
 '<button class="modal-btn use" onclick="document.querySelector(\'.modal-overlay\').remove();useItem('+idx+')">✦ 使用</button>'+
 '<button class="modal-btn drop" onclick="document.querySelector(\'.modal-overlay\').remove();dropItem('+idx+')">✕ 丢弃</button>'+
@@ -268,13 +422,23 @@ function dropItem(idx){
 var item=S.inv[idx];if(!item)return;
 S.inv.splice(idx,1);
 al('丢弃了 '+item.name);us();
-renderLevel(gl(S.lv),ge(S.lv),null,true);
+renderLevel(gl(S.lv),ge(S.lv),null,true,S.pendingObj);
+}
+
+function showBuffDetail(key,turns){
+var name=ENAMES[key]||key;
+var desc=EDESC[key]||'未知效果';
+var overlay=document.createElement('div');
+overlay.className='modal-overlay';
+overlay.onclick=function(e){if(e.target===overlay)overlay.remove();};
+overlay.innerHTML='<div class="modal"><div class="modal-name" style="font-size:1.2em">'+name+'</div><div class="modal-desc" style="margin:10px 0">'+desc+'</div><div class="modal-stats">剩余回合：'+turns+'</div><button class="settings-close" onclick="this.closest(\'.modal-overlay\').remove()">关闭</button></div>';
+document.body.appendChild(overlay);
 }
 
 function startGame(){
 document.getElementById('ts').style.display='none';
 document.getElementById('gs').style.display='block';
-S={lv:0,san:100,sta:100,tn:0,mx:0,vis:new Set(),log:[],evts:0,inv:[],objFound:0,buffs:{}};
+S={lv:0,san:100,sta:100,tn:0,mx:0,vis:new Set(),log:[],evts:0,inv:[],objFound:0,buffs:{},pendingObj:null,debugEventOnly:false};
 enterLevel(0);
 }
 function gl(n){return LD.find(l=>l.level===n)||{level:n,name:"未知",danger:3,exits:[]};}
@@ -295,7 +459,7 @@ b1.style.background=S.sta>50?'#88a':S.sta>25?'#ca4':'#c44';
 document.getElementById('sv0').className='sv '+(S.san>50?'gd':S.san>25?'wn':'dg');
 document.getElementById('sv1').className='sv '+(S.sta>50?'gd':S.sta>25?'wn':'dg');
 var bh='';
-for(var b in S.buffs){if(S.buffs[b]>0)bh+='<span class="buff">'+(ENAMES[b]||b)+' ('+S.buffs[b]+')</span> ';}
+for(var b in S.buffs){if(S.buffs[b]>0)bh+='<span class="buff" onclick="showBuffDetail(\''+b+'\','+S.buffs[b]+')" title="'+(EDESC[b]||'')+'">'+(ENAMES[b]||b)+' ('+S.buffs[b]+')</span> ';}
 document.getElementById('buffs').innerHTML=bh;
 }
 function tickBuffs(){for(var b in S.buffs){S.buffs[b]--;if(S.buffs[b]<=0)delete S.buffs[b];}}
@@ -335,17 +499,17 @@ else if(item.effect==='light'){S.san+=item.san;S.sta+=item.sta;addBuff('light',5
 else if(item.effect==='double_find'){S.san+=item.san;S.sta+=item.sta;addBuff('double_find',3);extraMsg='🍀 幸运（3回合物品发现率x2.5）';}
 else if(item.effect==='immunity_sound'){S.san+=item.san;S.sta+=item.sta;addBuff('immunity_sound',4);extraMsg='🔇 静默（4回合免疫声音事件）';}
 else if(item.effect==='noclip_boost'){S.san+=item.san;S.sta+=item.sta;addBuff('noclip_boost',2);extraMsg='🌀 切行增幅';}
-else if(item.effect==='unlock'){S.san+=item.san;S.sta+=item.sta;var nt=Math.floor(Math.random()*100);extraMsg='🔑 通往 Level '+nt+' 的新通道！';}
+else if(item.effect==='unlock'){S.san+=item.san;S.sta+=item.sta;var nt=Math.floor(Math.random()*100);var cd=gl(S.lv);if(!cd.exits.find(function(e){return e.target===nt;})){cd.exits.push({target:nt});}extraMsg='🔑 打开了通往 Level '+nt+' 的通道！';}
 else if(item.effect==='attract'){S.san+=item.san;S.sta+=item.sta;S.san-=10;S.sta-=8;dSan=item.san-10;dSta=item.sta-8;extraMsg='⚠ 气味吸引了实体！';}
 else{S.san+=item.san;S.sta+=item.sta;}
 al(item.name+(extraMsg?' — '+extraMsg:''),dSan,dSta);us();
 if(S.san<=0||S.sta<=0){gameOver(S.san<=0?'s':'m');return;}
 var fullMsg=msg+(extraMsg?'<br><span style="font-size:.85em;opacity:.8">'+extraMsg+'</span>':'');
-renderLevel(gl(S.lv),ge(S.lv),{t:dSan>=0&&item.type!=='danger'?'g':'d',x:fullMsg},true);
+renderLevel(gl(S.lv),ge(S.lv),{t:dSan>=0&&item.type!=='danger'?'g':'d',x:fullMsg},true,S.pendingObj);
 }
 
 function enterLevel(n){
-S.lv=n;S.tn++;S.vis.add(n);S.mx=Math.max(S.mx,n);tickBuffs();
+S.lv=n;S.tn++;S.vis.add(n);S.mx=Math.max(S.mx,n);S.pendingObj=null;tickBuffs();
 var d=gl(n),ev=ge(n);
 var dc=d.danger*3,mc=3+Math.floor(d.danger*1.5);
 if(hasBuff('shield')){dc=Math.floor(dc*0.5);mc=Math.floor(mc*0.5);}
@@ -374,14 +538,28 @@ function doExplore(){
 var prevSan=S.san,prevSta=S.sta;
 S.tn++;S.sta-=5;tickBuffs();
 var ev=ge(S.lv),exploreEv=null;
+if(S.debugEventOnly){
+// Only trigger level-specific events
+if(ev&&ev.exploreEvents&&ev.exploreEvents.length>0){
+exploreEv=pickEvent(ev.exploreEvents);
+if(!exploreEv)exploreEv=ev.exploreEvents[Math.floor(Math.random()*ev.exploreEvents.length)];
+}
+if(!exploreEv)exploreEv={t:"n",x:"[调试] 当前层级没有专属探索事件。",s:0,m:0,c:1};
+S.san+=exploreEv.s;S.sta+=exploreEv.m;S.evts++;
+us();if(S.san<=0||S.sta<=0){gameOver(S.san<=0?'s':'m');return;}
+var dS=S.san-prevSan,dM=S.sta-prevSta;
+al('[事件测试] '+exploreEv.x.substring(0,20)+'...',dS,dM);
+renderLevel(gl(S.lv),ev,exploreEv,true,S.pendingObj);
+return;
+}
 if(ev&&ev.exploreEvents)exploreEv=pickEvent(ev.exploreEvents);
 if(!exploreEv)exploreEv={t:"n",x:"你仔细探索了周围，没有特别的发现。",s:-3,m:-5,c:1};
 S.san+=exploreEv.s;S.sta+=exploreEv.m;S.evts++;
-var foundObj=tryFindObject();if(foundObj)S.objFound++;
+var foundObj=tryFindObject();if(foundObj){S.objFound++;S.pendingObj=foundObj;}
 us();if(S.san<=0||S.sta<=0){gameOver(S.san<=0?'s':'m');return;}
 var dS=S.san-prevSan,dM=S.sta-prevSta;
 al('探索 Level '+S.lv+(foundObj?' — 发现['+foundObj.tier+']'+foundObj.name:''),dS,dM);
-renderLevel(gl(S.lv),ev,exploreEv,true,foundObj);
+renderLevel(gl(S.lv),ev,exploreEv,true,S.pendingObj);
 }
 
 function doRest(){
@@ -411,7 +589,7 @@ var fxDesc=foundObj.effect&&ENAMES[foundObj.effect]?ENAMES[foundObj.effect]:'无
 h+='<div class="obj-find" style="animation:fi 1.2s"><span class="obj-name tier-'+foundObj.tier+'">📦 ['+tierName+'] '+foundObj.name+'</span><div class="obj-desc">'+foundObj.desc+'</div>';
 if(foundObj.effect)h+='<div class="obj-fx">特殊效果：'+fxDesc+'</div>';
 if(S.inv.length<MAX_INV){h+='<button class="cb item" style="margin-top:8px" onclick="pickupObj('+foundObj.id+')">▸ 拾取 '+foundObj.name+'<span class="ch">放入背包 ('+S.inv.length+'/'+MAX_INV+')</span></button>';}
-else{h+='<div style="opacity:.7;font-size:.8em;margin-top:5px">⚠ 背包已满</div>';}
+else{h+='<div style="opacity:.7;font-size:.8em;margin-top:5px">⚠ 背包已满 — 丢弃物品后可拾取</div>';}
 h+='</div>';
 }
 if(S.inv.length>0){
@@ -420,7 +598,9 @@ S.inv.forEach(function(item,i){h+='<span class="inv-item tier-'+item.tier+'" onc
 h+='</div></div>';
 }
 h+='<div class="chs" style="animation:fi 1.2s">';
-h+='<button class="cb explore" onclick="doExplore()">🔍 探索当前层级<span class="ch">体力 -5 | 可能发现物品和事件'+(hasBuff('double_find')?' | 🍀幸运':'')+'</span></button>';
+var exploreLabel=S.debugEventOnly?'🔍 触发层级事件':'🔍 探索当前层级';
+var exploreHint=S.debugEventOnly?'仅触发当前层级专属事件':'体力 -5 | 可能发现物品和事件'+(hasBuff('double_find')?' | 🍀幸运':'');
+h+='<button class="cb explore" onclick="doExplore()">'+exploreLabel+'<span class="ch">'+exploreHint+'</span></button>';
 if(S.sta<60)h+='<button class="cb rest" onclick="doRest()">💤 就地休息<span class="ch">体力 +15 | 理智 -5 | 25%遭遇危险</span></button>';
 h+='<hr class="sep">';
 var ex=d.exits.filter(function(e){return e.target>=0&&e.target<=99;});
@@ -444,7 +624,7 @@ window.scrollTo({top:0,behavior:'smooth'});
 window.pickupObj=function(id){
 if(S.inv.length>=MAX_INV)return;
 var obj=OB.find(function(o){return o.id===id;});
-if(obj){var copy={};for(var k in obj)copy[k]=obj[k];S.inv.push(copy);al('拾取 ['+obj.tier+'] '+obj.name);us();renderLevel(gl(S.lv),ge(S.lv),null,true);}
+if(obj){var copy={};for(var k in obj)copy[k]=obj[k];S.inv.push(copy);S.pendingObj=null;al('拾取 ['+obj.tier+'] '+obj.name);us();renderLevel(gl(S.lv),ge(S.lv),null,true);}
 };
 
 function gameOver(cause){
